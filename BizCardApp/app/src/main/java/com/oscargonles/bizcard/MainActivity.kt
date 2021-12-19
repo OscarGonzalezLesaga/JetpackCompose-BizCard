@@ -44,23 +44,28 @@ class MainActivity : ComponentActivity() {
 fun CreateBizCard() {
     SurfaceFullScreen {
         MainCard {
-            Surface(
-                modifier = Modifier
-                    .size(150.dp)
-                    .padding(5.dp),
-                shape = CircleShape,
-                color = MaterialTheme.colors.onSurface.copy(alpha = 0.5f),
-                border = BorderStroke(0.5.dp, Color.LightGray),
-                elevation = 4.dp
-            ) {
-                Image(
-                    painter = painterResource(id = R.drawable.profile_image),
-                    contentDescription = "Profile Image",
-                    modifier = Modifier.size(135.dp),
-                    contentScale = ContentScale.Crop
-                )
-            }
+            ProfileImage()
         }
+    }
+}
+
+@Composable
+fun ProfileImage() {
+    Surface(
+        modifier = Modifier
+            .size(150.dp)
+            .padding(5.dp),
+        shape = CircleShape,
+        color = MaterialTheme.colors.onSurface.copy(alpha = 0.5f),
+        border = BorderStroke(0.5.dp, Color.LightGray),
+        elevation = 4.dp
+    ) {
+        Image(
+            painter = painterResource(id = R.drawable.profile_image),
+            contentDescription = "Profile Image",
+            modifier = Modifier.size(135.dp),
+            contentScale = ContentScale.Crop
+        )
     }
 }
 
