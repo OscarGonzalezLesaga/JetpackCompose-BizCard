@@ -37,17 +37,24 @@ class MainActivity : ComponentActivity() {
 @Composable
 fun CreateBizCard() {
     SurfaceFullScreen {
-        Card(
-            modifier = Modifier
-                .width(200.dp)
-                .height(390.dp)
-                .padding(12.dp),
-            shape = RoundedCornerShape(corner = CornerSize(size = 15.dp)),
-            backgroundColor = Color.White,
-            elevation = 4.dp
-        ) {
+        MainCard {
 
         }
+    }
+}
+
+@Composable
+fun MainCard(content: @Composable () -> Unit) {
+    Card(
+        modifier = Modifier
+            .width(200.dp)
+            .height(390.dp)
+            .padding(12.dp),
+        shape = RoundedCornerShape(corner = CornerSize(size = 15.dp)),
+        backgroundColor = Color.White,
+        elevation = 4.dp
+    ) {
+        content()
     }
 }
 
