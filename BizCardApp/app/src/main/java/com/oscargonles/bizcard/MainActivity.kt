@@ -1,6 +1,7 @@
 package com.oscargonles.bizcard
 
 import android.os.Bundle
+import android.util.Log
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.BorderStroke
@@ -16,6 +17,7 @@ import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.CornerSize
 import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.material.Button
 import androidx.compose.material.Card
 import androidx.compose.material.Divider
 import androidx.compose.material.MaterialTheme
@@ -53,8 +55,20 @@ fun CreateBizCard() {
                 ImageProfile()
                 Divider()
                 CreateInfo()
+                PortfolioButton()
             }
         }
+    }
+}
+
+@Composable
+private fun PortfolioButton() {
+    Button(
+        onClick = {
+            Log.d("Clicked", "CreateBizCard: Button clicked")
+        }
+    ) {
+        Text(text = "Portfolio", style = MaterialTheme.typography.button)
     }
 }
 
