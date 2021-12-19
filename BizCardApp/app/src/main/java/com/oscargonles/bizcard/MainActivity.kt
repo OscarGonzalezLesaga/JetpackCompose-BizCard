@@ -29,8 +29,17 @@ class MainActivity : ComponentActivity() {
 
 @Composable
 fun CreateBizCard() {
-    Surface(modifier = Modifier.fillMaxWidth().fillMaxHeight()) {
+    SurfaceFullScreen {
 
+    }
+}
+
+@Composable
+fun SurfaceFullScreen(content: @Composable () -> Unit){
+    Surface(modifier = Modifier
+        .fillMaxWidth()
+        .fillMaxHeight()) {
+        content()
     }
 }
 
