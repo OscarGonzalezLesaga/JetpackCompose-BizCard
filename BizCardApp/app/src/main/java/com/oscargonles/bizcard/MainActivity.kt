@@ -5,6 +5,8 @@ import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.Image
+import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
@@ -15,9 +17,11 @@ import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.CornerSize
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.Card
+import androidx.compose.material.Divider
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Surface
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
@@ -44,13 +48,27 @@ class MainActivity : ComponentActivity() {
 fun CreateBizCard() {
     SurfaceFullScreen {
         MainCard {
-            ProfileImage()
+            ColumnTopCenterHorizontally {
+                ImageProfile()
+                Divider()
+            }
         }
     }
 }
 
 @Composable
-fun ProfileImage() {
+private fun ColumnTopCenterHorizontally(content: @Composable () -> Unit) {
+    Column(
+        modifier = Modifier.height(300.dp),
+        verticalArrangement = Arrangement.Top,
+        horizontalAlignment = Alignment.CenterHorizontally
+    ) {
+        content()
+    }
+}
+
+@Composable
+private fun ImageProfile() {
     Surface(
         modifier = Modifier
             .size(150.dp)
@@ -70,7 +88,7 @@ fun ProfileImage() {
 }
 
 @Composable
-fun MainCard(content: @Composable () -> Unit) {
+private fun MainCard(content: @Composable () -> Unit) {
     Card(
         modifier = Modifier
             .width(200.dp)
@@ -85,7 +103,7 @@ fun MainCard(content: @Composable () -> Unit) {
 }
 
 @Composable
-fun SurfaceFullScreen(content: @Composable () -> Unit) {
+private fun SurfaceFullScreen(content: @Composable () -> Unit) {
     Surface(
         modifier = Modifier
             .fillMaxWidth()
